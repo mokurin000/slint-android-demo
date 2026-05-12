@@ -6,6 +6,7 @@ license = "MIT"
 
 [dependencies]
 android_logger = { version = "0.15.1", features = ["android-api-30"] }
+log = "0.4.29"
 slint = { version = "1.16.1", features = ["backend-android-activity-06"] }
 
 [lib]

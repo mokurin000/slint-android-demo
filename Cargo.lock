@@ -1259,7 +1259,7 @@ dependencies = [
 [[package]]
 name = "fontique"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#09d014d040b6082d8fcd9ebfa9139729b337815f"
+source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#78f9607e23b91a033a77ef6514b9372f77c65593"
 dependencies = [
  "hashbrown 0.16.1",
  "linebender_resource_handle",
@@ -3102,12 +3102,12 @@ checksum = "f38d5652c16fde515bb1ecef450ab0f6a219d619a7274976324d5e377f7dceba"
 [[package]]
 name = "parlance"
 version = "0.1.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#09d014d040b6082d8fcd9ebfa9139729b337815f"
+source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#78f9607e23b91a033a77ef6514b9372f77c65593"
 
 [[package]]
 name = "parley"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#09d014d040b6082d8fcd9ebfa9139729b337815f"
+source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#78f9607e23b91a033a77ef6514b9372f77c65593"
 dependencies = [
  "fontique",
  "harfrust",
@@ -3124,7 +3124,7 @@ dependencies = [
 [[package]]
 name = "parley_data"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#09d014d040b6082d8fcd9ebfa9139729b337815f"
+source = "git+https://github.com/mokurin000/parley?branch=v0.8-debug#78f9607e23b91a033a77ef6514b9372f77c65593"
 dependencies = [
  "icu_properties",
 ]
@@ -3788,6 +3788,7 @@ name = "slint-android-demo"
 version = "0.1.0"
 dependencies = [
  "android_logger",
+ "log",
  "slint",
 ]
 
@@ -5751,9 +5752,9 @@ dependencies = [
 
 [[package]]
 name = "zerofrom"
-version = "0.1.7"
+version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "69faa1f2a1ea75661980b013019ed6687ed0e83d069bc1114e2cc74c6c04c4df"
+checksum = "0ec05a11813ea801ff6d75110ad09cd0824ddba17dfe17128ea0d5f68e6c5272"
 dependencies = [
  "zerofrom-derive",
 ]

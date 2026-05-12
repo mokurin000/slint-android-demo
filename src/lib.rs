@@ -3,9 +3,8 @@
 fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::error::Error>> {
     use android_logger::Config;
 
+    android_logger::init_once(Config::default().with_max_level(log::LevelFilter::Trace));
     slint::android::init(app).unwrap();
-
-    android_logger::init_once(Config::default().with_max_level(log::LevelFilter::Debug));
 
     slint::slint!(
         export component AppWindow inherits Window {
