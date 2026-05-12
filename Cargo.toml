@@ -5,14 +5,20 @@ edition = "2024"
 license = "MIT"
 
 [dependencies]
-slint = { version = "1.15.0", features = ["backend-android-activity-06"] }
+android_logger = { version = "0.15.1", features = ["android-api-30"] }
+slint = { version = "1.16.1", features = ["backend-android-activity-06"] }
 
 [lib]
 crate-type = ["cdylib"]
+
+[package.metadata.android.signing.debug]
+path = ".android/test.keystore"
+keystore_password = "testpass"
 
 [package.metadata.android.signing.release]
 path = ".android/test.keystore"
 keystore_password = "testpass"
 
-[build-dependencies]
-slint-build = "1"
+[patch.crates-io]
+parley = { git = "https://github.com/mokurin000/parley", branch = "v0.8-debug" }
+fontique = { git = "https://github.com/mokurin000/parley", branch = "v0.8-debug" }
