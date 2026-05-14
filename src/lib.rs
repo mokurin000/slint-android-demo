@@ -28,7 +28,7 @@ fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::erro
     let base_path = PathBuf::from(format!("/data/user/{}/com.example.slint/fonts", unsafe {
         libc::getuid() / 100000
     }));
-    _ = create_dir_all("");
+    _ = create_dir_all(&base_path);
     place_file(
         base_path.join("oppo.ttf"),
         include_bytes!("../SysSans-Hans-Regular.ttf"),
