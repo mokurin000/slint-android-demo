@@ -1,0 +1,21 @@
+import "../SysSans-Hans-Regular-400-instanced.ttf";
+
+export component AppWindow inherits Window {
+    default-font-size: 40px;
+
+    HorizontalLayout {
+        spacing: 20px;
+
+        VerticalLayout {
+            Text {
+                text: "OPPO Sans 4.0 - 400";
+                font-size: 30px;
+            }
+
+            Text {
+                text: "测试𰻞";
+                font-family: "OPPO_Sans_4.0_SC";
+            }
+        }
+    }
+}
