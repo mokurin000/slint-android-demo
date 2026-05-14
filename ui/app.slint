@@ -1,10 +1,37 @@
+import "../SysSans-Hans-Regular.ttf";
 import "../SarasaUiSC-Regular.ttf";
 
-export component AppWindow inherits Window {
-    default-font-family: "Sarasa UI SC";
 
-    Text {
-        text: "测试字体𰻞";
-        font-size: 100px;
+export component AppWindow inherits Window {
+    default-font-size: 40px;
+    property <[float]> font-weights: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+    HorizontalLayout {
+        spacing: 20px;
+
+        VerticalLayout {
+            Text {
+                text: "Oppo Sans 4.0";
+                font-size: 30px;
+            }
+
+            for font-weight in font-weights: Text {
+                text: "测试𰻞";
+                font-family: "OPPO_Sans_4.0_SC";
+                font-weight: font-weight;
+            }
+        }
+
+        VerticalLayout {
+            Text {
+                text: "Sarasa Gothic UI";
+                font-size: 30px;
+            }
+
+            Text {
+                text: "测试𰻞";
+                font-family: "Sarasa UI SC";
+            }
+        }
     }
 }

@@ -23,6 +23,9 @@ slint-build = "1.16.1"
 [lib]
 crate-type = ["cdylib"]
 
+[package.metadata.android]
+package = "com.example.slint"
+
 [package.metadata.android.signing.debug]
 path = ".android/test.keystore"
 keystore_password = "testpass"
