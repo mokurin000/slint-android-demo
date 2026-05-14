@@ -3,13 +3,13 @@ fn main() {
         slint_build::compile_with_config(
             "ui/fixed-weight.slint",
             slint_build::CompilerConfiguration::new()
-                .embed_resources(slint_build::EmbedResourcesKind::EmbedForSoftwareRenderer),
+                .embed_resources(slint_build::EmbedResourcesKind::AsAbsolutePath),
         )
     } else {
         slint_build::compile_with_config(
             "ui/app.slint",
             slint_build::CompilerConfiguration::new()
-                .embed_resources(slint_build::EmbedResourcesKind::EmbedForSoftwareRenderer),
+                .embed_resources(slint_build::EmbedResourcesKind::AsAbsolutePath),
         )
     }
     .unwrap()
