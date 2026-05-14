@@ -1,9 +1,6 @@
-import "/data/data/com.example.slint/SarasaUiSC-Regular.ttf";
-import "/data/data/com.example.slint/SysSans-Hans-Regular.ttf";
-import "/data/data/com.example.slint/NotoSansCJK-Regular.ttc";
-
+import { SpinBox } from "std-widgets.slint";
 export component AppWindow inherits Window {
-    default-font-size: 40px;
+    default-font-size: 20px;
     property <[float]> font-weights: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
     HorizontalLayout {
@@ -11,39 +8,27 @@ export component AppWindow inherits Window {
 
         VerticalLayout {
             Text {
-                text: "Oppo Sans 4.0";
-                font-size: 30px;
+                text: "OPPO";
+                font-family: "OPPO Sans 4.0 SC";
             }
 
             for font-weight in font-weights: Text {
                 text: "测试𰻞";
-                font-family: "OPPO_Sans_4.0_SC";
+                font-family: "OPPO Sans 4.0 SC";
                 font-weight: font-weight;
             }
         }
 
         VerticalLayout {
             Text {
-                text: "Noto Sans CJK SC";
-                font-size: 30px;
+                text: "NotoSans";
+                font-family: "OPPO Sans 4.0 SC";
             }
 
             for font-weight in font-weights: Text {
                 text: "测试𰻞";
                 font-family: "Noto Sans CJK SC";
                 font-weight: font-weight;
-            }
-        }
-
-        VerticalLayout {
-            Text {
-                text: "Sarasa Gothic UI";
-                font-size: 30px;
-            }
-
-            Text {
-                text: "测试𰻞";
-                font-family: "Sarasa UI SC";
             }
         }
     }

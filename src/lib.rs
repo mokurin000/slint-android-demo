@@ -1,49 +1,45 @@
+#[cfg(target_os = "android")]
+use std::path::Path;
+
 slint::include_modules!();
+
+#[cfg(target_os = "android")]
+fn place_file(path: impl AsRef<Path>, bytes: impl AsRef<[u8]>) {
+    if let Ok(mut f) = std::fs::OpenOptions::new()
+        .create(true)
+        .append(false)
+        .truncate(true)
+        .write(true)
+        .open(path)
+    {
+        use std::io::Write;
+
+        _ = f.write_all(bytes.as_ref());
+    }
+}
 
 #[cfg(target_os = "android")]
 #[unsafe(no_mangle)]
 fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::error::Error>> {
-    use std::{fs, path::PathBuf};
+    use std::{fs::create_dir_all, path::PathBuf};
 
     use android_logger::Config;
 
-    let fonts = if option_env!("FIXED_OPPO_SANS").is_some() {
-        vec![(
-            PathBuf::from("/data/data/com.example.slint/SysSans-Hans-Regular-400-instanced.ttf"),
-            include_bytes!("../SysSans-Hans-Regular-400-instanced.ttf").as_slice(),
-        )]
-    } else {
-        vec![
-            (
-                PathBuf::from("/data/data/com.example.slint/SarasaUiSC-Regular.ttf"),
-                include_bytes!("../SarasaUiSC-Regular.ttf").as_slice(),
-            ),
-            (
-                PathBuf::from("/data/data/com.example.slint/SysSans-Hans-Regular.ttf"),
-                include_bytes!("../SysSans-Hans-Regular.ttf"),
-            ),
-            (
-                PathBuf::from("/data/data/com.example.slint/NotoSansCJK-Regular.ttc"),
-                include_bytes!("../NotoSansCJK-Regular.ttc"),
-            ),
-        ]
-    };
-    for (path, bytes) in fonts {
-        if !path.exists()
-            && let Ok(mut file) = fs::OpenOptions::new()
-                .create(true)
-                .truncate(true)
-                .write(true)
-                .open(path)
-        {
-            use std::io::Write;
+    let base_path = PathBuf::from(format!("/data/user/{}/com.example.slint/fonts", unsafe {
+        libc::getuid() / 100000
+    }));
+    _ = create_dir_all("");
+    place_file(
+        base_path.join("oppo.ttf"),
+        include_bytes!("../SysSans-Hans-Regular.ttf"),
+    );
+    place_file(
+        base_path.join("noto.ttf"),
+        include_bytes!("../NotoSansCJK-Regular.ttc"),
+    );
 
-            _ = file.write_all(bytes);
-        }
-    }
-
-    slint::android::init(app).unwrap();
     android_logger::init_once(Config::default().with_max_level(log::LevelFilter::Debug));
+    slint::android::init(app).unwrap();
 
     AppWindow::new()?.run()?;
     Ok(())
