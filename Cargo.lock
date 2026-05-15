@@ -215,23 +215,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fc7eb209b1518d6bb87b283c20095f5228ecda460da70b44f0802523dea6da04"
 
 [[package]]
-name = "android_log-sys"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "84521a3cf562bc62942e294181d9eef17eb38ceb8c68677bc49f144e4c3d4f8d"
-
-[[package]]
-name = "android_logger"
-version = "0.15.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dbb4e440d04be07da1f1bf44fb4495ebd58669372fe0cffa6e48595ac5bd88a3"
-dependencies = [
- "android_log-sys",
- "env_filter",
- "log",
-]
-
-[[package]]
 name = "android_system_properties"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1212,16 +1195,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "env_filter"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1bf3c259d255ca70051b30e2e95b5446cdb8949ac4cd22c0d7fd634d89f568e2"
-dependencies = [
- "log",
- "regex",
-]
-
-[[package]]
 name = "equator"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1407,12 +1380,11 @@ dependencies = [
 [[package]]
 name = "fontique"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-oppo-sans#932ef512f2c41956ab55046d0929036a5b02e4c8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23358480a54a886d51b306718d5ca743fdfe238e5df38ef650f4e72f29c5d9e9"
 dependencies = [
  "hashbrown 0.16.1",
- "libc",
  "linebender_resource_handle",
- "log",
  "memmap2",
  "objc2 0.6.4",
  "objc2-core-foundation",
@@ -3357,12 +3329,14 @@ checksum = "f38d5652c16fde515bb1ecef450ab0f6a219d619a7274976324d5e377f7dceba"
 [[package]]
 name = "parlance"
 version = "0.1.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-oppo-sans#932ef512f2c41956ab55046d0929036a5b02e4c8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4b6937eda350acc1a5d05872c3cbf99fe78619c269096e2be3d4a350058639d5"
 
 [[package]]
 name = "parley"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-oppo-sans#932ef512f2c41956ab55046d0929036a5b02e4c8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d6c00ec192e1a402861526eff91a4b4690a2e5a17a4ae2deb772d72b49daf868"
 dependencies = [
  "fontique",
  "harfrust",
@@ -3379,7 +3353,8 @@ dependencies = [
 [[package]]
 name = "parley_data"
 version = "0.8.0"
-source = "git+https://github.com/mokurin000/parley?branch=v0.8-oppo-sans#932ef512f2c41956ab55046d0929036a5b02e4c8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "232313eddc02ac27f015e8f8eeb7facce8a896116df7e3eda1bfd9f600a9a39d"
 dependencies = [
  "icu_properties",
 ]
@@ -4220,9 +4195,6 @@ dependencies = [
 name = "slint-android-demo"
 version = "0.1.0"
 dependencies = [
- "android_logger",
- "libc",
- "log",
  "slint",
  "slint-build",
 ]

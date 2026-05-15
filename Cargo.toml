@@ -15,11 +15,6 @@ slint = { version = "1.16.1", features = [
 ], default-features = false }
 slint-build = "1.16.1"
 
-[target.'cfg(target_os = "android")'.dependencies]
-log = "0.4.0"
-android_logger = { version = "0.15.1", features = ["android-api-30"] }
-libc = "0.2"
-
 [build-dependencies]
 slint-build = "1.16.1"
 
@@ -36,7 +31,3 @@ keystore_password = "testpass"
 [package.metadata.android.signing.release]
 path = ".android/test.keystore"
 keystore_password = "testpass"
-
-[patch.crates-io]
-parley = { git = "https://github.com/mokurin000/parley", branch = "v0.8-oppo-sans" }
-fontique = { git = "https://github.com/mokurin000/parley", branch = "v0.8-oppo-sans" }
