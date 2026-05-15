@@ -38,5 +38,7 @@ path = ".android/test.keystore"
 keystore_password = "testpass"
 
 [patch.crates-io]
-parley = { git = "https://github.com/mokurin000/parley", branch = "v0.8-oppo-sans" }
-fontique = { git = "https://github.com/mokurin000/parley", branch = "v0.8-oppo-sans" }
+parley = { git = "https://github.com/mokurin000/parley", branch = "v0.9-oppo-sans" }
+fontique = { git = "https://github.com/mokurin000/parley", branch = "v0.9-oppo-sans" }
+slint = { git = "https://github.com/slint-ui/slint" }
+slint-build = { git = "https://github.com/slint-ui/slint" }
