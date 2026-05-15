@@ -1,6 +1,5 @@
 use std::env;
 
-#[cfg(not(target_os = "android"))]
 use slint_build::{CompilerConfiguration, EmbedResourcesKind};
 
 fn main() {
