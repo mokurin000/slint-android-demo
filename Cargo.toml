@@ -5,7 +5,6 @@ edition = "2024"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-libc = "0.2.186"
 slint = { version = "1.16.1", features = [
     "backend-android-activity-06",
     "backend-default",
@@ -15,6 +14,11 @@ slint = { version = "1.16.1", features = [
     "accessibility",
 ], default-features = false }
 slint-build = "1.16.1"
+
+[target.'cfg(target_os = "android")'.dependencies]
+libc = "0.2.186"
+android_logger = "0.15"
+log = "0.4"
 
 [build-dependencies]
 slint-build = "1.16.1"
@@ -32,3 +36,7 @@ keystore_password = "testpass"
 [package.metadata.android.signing.release]
 path = ".android/test.keystore"
 keystore_password = "testpass"
+
+[patch.crates-io]
+parley = { git = "https://github.com/mokurin000/parley", branch = "v0.8-debug" }
+fontique = { git = "https://github.com/mokurin000/parley", branch = "v0.8-debug" }

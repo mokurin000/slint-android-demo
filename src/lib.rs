@@ -29,7 +29,7 @@ pub fn place_file(bytes: impl AsRef<[u8]>, path: impl AsRef<Path>) {
 fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::error::Error>> {
     use std::{env, path::PathBuf};
 
-    slint::android::init(app).unwrap();
+    use android_logger::Config;
 
     let data_dir = PathBuf::from("/data/user")
         .join(unsafe { libc::getuid() / 100000 }.to_string())
@@ -72,6 +72,9 @@ fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::erro
         },
         _ => (),
     }
+
+    android_logger::init_once(Config::default().with_max_level(log::LevelFilter::Info));
+    slint::android::init(app).unwrap();
 
     AppWindow::new()?.run()?;
     Ok(())
