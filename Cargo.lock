@@ -4195,6 +4195,7 @@ dependencies = [
 name = "slint-android-demo"
 version = "0.1.0"
 dependencies = [
+ "libc",
  "slint",
  "slint-build",
 ]

@@ -5,6 +5,7 @@ edition = "2024"
 license = "GPL-3.0-or-later"
 
 [dependencies]
+libc = "0.2.186"
 slint = { version = "1.16.1", features = [
     "backend-android-activity-06",
     "backend-default",
