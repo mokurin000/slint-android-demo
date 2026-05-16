@@ -37,40 +37,19 @@ fn android_main(app: slint::android::AndroidApp) -> Result<(), Box<dyn std::erro
         .join("files");
     let android_root = data_dir.to_string_lossy().into_owned();
 
-    match option_env!("FONT_CONF") {
-        Some("coloros") => unsafe {
+    {
+        unsafe {
             env::set_var("ANDROID_ROOT", android_root);
+        }
 
-            place_file(
-                include_bytes!("../test/ColorOS/fonts.xml"),
-                data_dir.join("etc").join("fonts.xml"),
-            );
-            place_file(
-                include_bytes!("../test/ColorOS/SysFont-Regular.ttf"),
-                data_dir.join("fonts").join("SysFont-Regular.ttf"),
-            );
-            place_file(
-                include_bytes!("../test/ColorOS/SysSans-Hans-Regular.ttf"),
-                data_dir.join("fonts").join("SysSans-Hans-Regular.ttf"),
-            );
-        },
-        Some("lineageos") => unsafe {
-            env::set_var("ANDROID_ROOT", android_root);
-
-            place_file(
-                include_bytes!("../test/LineageOS/fonts.xml"),
-                data_dir.join("etc").join("fonts.xml"),
-            );
-            place_file(
-                include_bytes!("../test/LineageOS/NotoSansCJK-Regular.ttc"),
-                data_dir.join("fonts").join("NotoSansCJK-Regular.ttc"),
-            );
-            place_file(
-                include_bytes!("../test/LineageOS/Roboto-Regular.ttf"),
-                data_dir.join("fonts").join("Roboto-Regular.ttf"),
-            );
-        },
-        _ => (),
+        place_file(
+            include_bytes!("../test/ColorOS/SysFont-Regular.ttf"),
+            data_dir.join("fonts").join("SysFont-Regular.ttf"),
+        );
+        place_file(
+            include_bytes!("../test/ColorOS/SysSans-Hans-Regular.ttf"),
+            data_dir.join("fonts").join("SysSans-Hans-Regular.ttf"),
+        );
     }
 
     android_logger::init_once(Config::default().with_max_level(log::LevelFilter::Info));
